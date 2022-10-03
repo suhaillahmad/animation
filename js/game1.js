@@ -1,6 +1,11 @@
 const spaceShips = document.querySelectorAll(".space");
-const flag = true;
+const aliens = document.querySelectorAll(".alien");
+let flag = true;
+let score = 0;
+let highScores = 0;
 let lastIndex;
+let gameEnd = 1;
+let namee;
 
 function indexCalculator() {
   let index = Math.floor(Math.random() * 6);
@@ -16,9 +21,16 @@ function gameStarted() {
   spaceShips[idx].classList.add("up");
   setTimeout(() => {
     spaceShips[idx].classList.remove("up");
-  }, 700);
+    if (gameEnd) gameStarted();
+  }, 7000);
 }
-
 document.querySelector(".start").addEventListener("click", () => {
-  setInterval(gameStarted, 1000);
+  if (gameEnd === 0 || flag === true) {
+    document.querySelector(".score").textContent = 0;
+    score = 0;
+    gameEnd = 1;
+    flag = false;
+    gameStarted();
+    setTimeout(() => (gameEnd = 0), 20000);
+  }
 });
