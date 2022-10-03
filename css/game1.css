@@ -74,3 +74,18 @@ h1 {
   margin-top: 30px;
   margin-bottom: 50px;
 }
+
+.cursor {
+  background-image: url(../images/hammer.png);
+  background-size: cover;
+  transform: translate(-20%, -20%);
+  height: 110px;
+  width: 100px;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  z-index: 3;
+}
+.cursor.active {
+  transform: rotate(-45deg);
+}
