@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  background-image: url(../images/body.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Bungee Spice", cursive;
+}
+h1 {
+  color: white;
+  font-size: 4rem;
+  text-align: center;
+  margin: 8%;
+}
+
+.game {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.box {
+  background-color: rgb(50, 49, 49);
+  border: 2px solid rgb(91, 91, 91);
+  box-shadow: 5px 10px rgb(77, 77, 77);
+  border-radius: 20px;
+  height: 400px;
+  width: 250px;
+  padding: 10%;
+  text-align: center;
+}
