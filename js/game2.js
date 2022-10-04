@@ -1,6 +1,7 @@
 const grid = document.querySelector(".grid");
+const initialPlayerPosi = 203;
 
-for (let i = 0; i < 225; i++) {
+for (let i = 0; i < 210; i++) {
   const square = document.createElement("div");
   grid.appendChild(square);
 }
@@ -19,3 +20,5 @@ function draw() {
 }
 
 draw();
+
+squares[initialPlayerPosi].classList.add("player");

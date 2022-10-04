@@ -28,3 +28,7 @@ body {
   background-size: cover;
   border: solid black 1px;
 }
+.player {
+  background-image: url(../images/spaceshipinv.png);
+  background-size: cover;
+}
