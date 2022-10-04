@@ -1,5 +1,5 @@
 const grid = document.querySelector(".grid");
-const initialPlayerPosi = 203;
+let indexPlayer = 203;
 
 for (let i = 0; i < 210; i++) {
   const square = document.createElement("div");
@@ -21,4 +21,21 @@ function draw() {
 
 draw();
 
-squares[initialPlayerPosi].classList.add("player");
+squares[indexPlayer].classList.add("player");
+
+const movePlayer = function (event) {
+  console.log(event);
+  squares[indexPlayer].classList.remove("player");
+  if (event.key === "ArrowLeft" || event.key === "a") {
+    if (indexPlayer > 196 && indexPlayer <= 210) {
+      indexPlayer--;
+    }
+  } else if (event.key === "ArrowRight" || event.key === "d") {
+    if (indexPlayer >= 196 && indexPlayer < 210) {
+      indexPlayer++;
+    }
+  }
+  squares[indexPlayer].classList.add("player");
+};
+
+document.addEventListener("keydown", movePlayer);
