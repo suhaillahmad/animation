@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  background-image: url("/images/body.jpg");
+  background-size: cover;
+}
+
+.grid {
+  margin: 5% auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 900px;
+  height: 600px;
+  border: solid rgb(89, 89, 89) 1px;
+}
+
+.grid div {
+  width: 60px;
+  height: 40px;
+}
+.invader {
+  background-image: url(../images/invader.png);
+  background-size: cover;
+  border: solid black 1px;
+}

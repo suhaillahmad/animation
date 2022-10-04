@@ -61,6 +61,7 @@ start.addEventListener("click", () => {
 });
 
 function scoreUpdate(e) {
+  console.log(e);
   if (e.isTrusted) {
     score++;
     scores.textContent = score;

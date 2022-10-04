@@ -8,6 +8,7 @@ body {
   background: url("../images/body.jpg");
   background-size: cover;
   text-align: center;
+  overflow: hidden;
   font-family: "Bungee Spice", cursive;
 }
 
@@ -96,8 +97,11 @@ h1 {
   position: absolute;
   top: 150px;
   left: 100px;
-  cursor: pointer;
 }
 .cursor.active {
   transform: rotate(-45deg);
+}
+
+.newclass {
+  cursor: none;
 }
