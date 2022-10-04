@@ -25,7 +25,6 @@ h1 {
 }
 
 .box {
-  background-color: rgb(50, 49, 49);
   border: 2px solid rgb(91, 91, 91);
   box-shadow: 5px 10px rgb(77, 77, 77);
   border-radius: 20px;
@@ -33,4 +32,13 @@ h1 {
   width: 250px;
   padding: 10%;
   text-align: center;
+  font-size: 2.5rem;
+}
+.game1 {
+  background-image: url(/images/whack.jpg);
+  background-size: cover;
+}
+.game2 {
+  background-image: url(/images/spaceinvader.jpg);
+  background-size: cover;
 }

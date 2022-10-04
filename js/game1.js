@@ -1,12 +1,14 @@
 const spaceShips = document.querySelectorAll(".space");
 const aliens = document.querySelectorAll(".alien");
 const cursor = document.querySelector(".cursor");
+const start = document.querySelector(".start");
+const scores = document.querySelector(".score");
+const highScore = document.querySelector(".highScore");
 let flag = true;
 let score = 0;
 let highScores = 0;
 let lastIndex;
 let gameEnd = 1;
-let namee;
 
 function hammer() {
   window.addEventListener("mousemove", (e) => {
@@ -46,10 +48,10 @@ function gameStarted() {
     if (gameEnd) gameStarted();
   }, 700);
 }
-document.querySelector(".start").addEventListener("click", () => {
+start.addEventListener("click", () => {
   hammer();
   if (gameEnd === 0 || flag === true) {
-    document.querySelector(".score").textContent = 0;
+    scores.textContent = 0;
     score = 0;
     gameEnd = 1;
     flag = false;
@@ -57,3 +59,19 @@ document.querySelector(".start").addEventListener("click", () => {
     setTimeout(() => ((gameEnd = 0), removeHammer()), 20000);
   }
 });
+
+function scoreUpdate(e) {
+  if (e.isTrusted) {
+    score++;
+    scores.textContent = score;
+  }
+
+  if (score >= highScores) {
+    console.log(score);
+    highScores = score;
+    console.log(highScores);
+    highScore.textContent = highScores;
+  }
+}
+
+aliens.forEach((alien) => alien.addEventListener("click", scoreUpdate));

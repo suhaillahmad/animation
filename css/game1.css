@@ -16,6 +16,17 @@ h1 {
   text-align: center;
   font-size: 4rem;
 }
+.back {
+  top: 10px;
+  left: 50px;
+  position: absolute;
+  width: 150px;
+  height: 50px;
+  background: none;
+  font-family: "Bungee Spice", cursive;
+  border-radius: 10px;
+  font-size: 2rem;
+}
 
 .row {
   width: 600px;
@@ -57,6 +68,7 @@ h1 {
   width: 100%;
   height: 100%;
   transition: 0.4s;
+  z-index: 1;
 }
 
 .space.up .alien {
@@ -67,7 +79,6 @@ h1 {
   z-index: 4;
   width: 150px;
   height: 50px;
-  color: #fff;
   background: none;
   font-family: "Bungee Spice", cursive;
   border-radius: 10px;
@@ -83,9 +94,9 @@ h1 {
   height: 110px;
   width: 100px;
   position: absolute;
-  top: 100px;
+  top: 150px;
   left: 100px;
-  z-index: 2;
+  cursor: pointer;
 }
 .cursor.active {
   transform: rotate(-45deg);
