@@ -31,7 +31,7 @@ const movePlayer = function (event) {
       indexPlayer--;
     }
   } else if (event.key === "ArrowRight" || event.key === "d") {
-    if (indexPlayer >= 196 && indexPlayer < 210) {
+    if (indexPlayer >= 196 && indexPlayer < 209) {
       indexPlayer++;
     }
   }

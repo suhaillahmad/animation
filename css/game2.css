@@ -26,7 +26,6 @@ body {
 .invader {
   background-image: url(../images/invader.png);
   background-size: cover;
-  border: solid black 1px;
 }
 .player {
   background-image: url(../images/spaceshipinv.png);
