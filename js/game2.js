@@ -1,5 +1,9 @@
 const grid = document.querySelector(".grid");
 let indexPlayer = 203;
+let width = 14;
+let movement = 1;
+let flag = true;
+let flag2 = false;
 
 for (let i = 0; i < 210; i++) {
   const square = document.createElement("div");
@@ -13,13 +17,49 @@ const invadersArray = [
   30, 31, 32, 33, 34, 35, 36, 37,
 ];
 
-function draw() {
+function drawInvaders() {
   for (let i = 0; i < invadersArray.length; i++) {
     squares[invadersArray[i]].classList.add("invader");
   }
 }
 
-draw();
+function removeInvaders() {
+  for (let i = 0; i < invadersArray.length; i++) {
+    squares[invadersArray[i]].classList.remove("invader");
+  }
+}
+
+const moveInvader = function () {
+  const left = invadersArray[0] % width === 0;
+  const right = invadersArray[invadersArray.length - 1] % width === width - 1;
+
+  removeInvaders();
+
+  if (right && flag) {
+    for (let i = 0; i < invadersArray.length; i++) {
+      invadersArray[i] += width + 1;
+      movement = -1;
+      flag = false;
+      flag2 = true;
+    }
+  }
+
+  if (left && flag2) {
+    for (let i = 0; i < invadersArray.length; i++) {
+      invadersArray[i] += width - 1;
+      movement = 1;
+      flag2 = false;
+      flag = true;
+    }
+  }
+
+  for (let i = 0; i < invadersArray.length; i++) {
+    invadersArray[i] += movement;
+  }
+  drawInvaders();
+};
+
+drawInvaders();
 
 squares[indexPlayer].classList.add("player");
 
@@ -39,3 +79,4 @@ const movePlayer = function (event) {
 };
 
 document.addEventListener("keydown", movePlayer);
+setInterval(moveInvader, 500);

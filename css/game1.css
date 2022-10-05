@@ -101,7 +101,3 @@ h1 {
 .cursor.active {
   transform: rotate(-45deg);
 }
-
-.newclass {
-  cursor: none;
-}
