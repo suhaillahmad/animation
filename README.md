@@ -1,3 +1,3 @@
 # animation
 
-[Live Preview](https://suhaillahmad.github.io/animation/)
+[Live Preview](https://suhaillahmadd.netlify.app/index.html)
