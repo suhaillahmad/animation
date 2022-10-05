@@ -31,8 +31,8 @@ for (let i = 0; i < 100; i++) {
   };
   stars.push(loc);
   generateStars(ctx, loc);
-  animate();
 }
+animate();
 
 function animate() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
