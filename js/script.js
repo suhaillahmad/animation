@@ -49,7 +49,6 @@ for (let i = 0; i < 400; i++) {
 animate();
 
 function animate() {
-  //   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = "rgba(0,0,0,0.2)";
   ctx.rect(0, 0, canvas.width, canvas.height);
   ctx.fill();
@@ -60,3 +59,11 @@ function animate() {
   }
   window.requestAnimationFrame(animate);
 }
+
+function speedIncrease(event) {
+  if (event.key === "w") {
+    speed++;
+  }
+}
+
+addEventListener("keydown", speedIncrease);

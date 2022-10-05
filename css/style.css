@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 body {
@@ -22,6 +22,7 @@ h1 {
 
 #myCanvas {
   position: absolute;
+  background-size: cover;
 }
 
 .game {
