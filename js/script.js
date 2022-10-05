@@ -1,13 +1,13 @@
-const canvas = document.getElementById("myCanvas");
+let canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
 let speed = 5;
 let stars = [];
+let radius = 2 + Math.random() * 2;
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 function generateStars(ctx, location) {
-  let radius = 2 + Math.random() * 2;
   ctx.beginPath();
   ctx.arc(location.x, location.y, radius, 0, Math.PI * 2);
   ctx.fillStyle = "white";
@@ -31,4 +31,22 @@ for (let i = 0; i < 100; i++) {
   };
   stars.push(loc);
   generateStars(ctx, loc);
+  animate();
+}
+
+function animate() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  for (let i = 0; i < 50; i++) {
+    ctx.beginPath();
+    ctx.arc(stars[i].x, stars[i].y, radius, 0, Math.PI * 2);
+    ctx.fillStyle = "white";
+    ctx.fill();
+  }
+
+  for (let i = 0; i < stars.length; i++) {
+    update(stars[i]);
+    generateStars(ctx, stars[i]);
+  }
+  window.requestAnimationFrame(animate);
 }
