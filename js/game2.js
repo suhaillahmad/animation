@@ -1,4 +1,7 @@
 const grid = document.querySelector(".grid");
+const gameOver = document.getElementById("gameOver");
+const start = document.querySelector(".start");
+let checkPause = false;
 let indexPlayer = 203;
 let width = 14;
 let movement = 1;
@@ -64,7 +67,7 @@ const moveInvader = function () {
 
   if (squares[indexPlayer].classList.contains("invader", "player")) {
     clearInterval(gameStarted);
-    document.getElementById("gameOver").classList.remove("started");
+    gameOver.classList.remove("started");
   }
 };
 
@@ -86,9 +89,11 @@ const movePlayer = function (event) {
 
 document.addEventListener("keydown", movePlayer);
 
-function gameStarts() {
-  const gameStarted = setInterval(moveInvader, 500);
-}
+const gameStarts = function () {
+  gameStarted = setInterval(moveInvader, 500);
+};
+
+start.addEventListener("click", gameStarts);
 
 function shooting(event) {
   let laserIndex = indexPlayer;
@@ -101,9 +106,8 @@ function shooting(event) {
       squares[laserIndex].classList.remove("laser");
       squares[laserIndex].classList.remove("invader");
       score++;
-      document.querySelector(".score").textContent = score;
-
       if (score === 30) {
+        console.log(score);
         clearInterval(gameStarted);
         clearInterval(movementId);
 
@@ -115,6 +119,17 @@ function shooting(event) {
       invadersRemoved.push(invadersDead);
     }
   }
+  if (event.key === " ") {
+    if (checkPause) {
+      gameStarts();
+      checkPause = false;
+    } else {
+      clearInterval(gameStarted);
+      clearInterval(movementId);
+      checkPause = true;
+    }
+  }
+
   if (event.key === "ArrowUp") {
     movementId = setInterval(moveLaser, 100);
   }
