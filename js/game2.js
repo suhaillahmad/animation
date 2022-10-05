@@ -57,6 +57,10 @@ const moveInvader = function () {
     invadersArray[i] += movement;
   }
   drawInvaders();
+
+  if (squares[indexPlayer].classList.contains("invader", "player")) {
+    clearInterval(gameStarted);
+  }
 };
 
 drawInvaders();
@@ -79,4 +83,4 @@ const movePlayer = function (event) {
 };
 
 document.addEventListener("keydown", movePlayer);
-setInterval(moveInvader, 500);
+const gameStarted = setInterval(moveInvader, 500);
