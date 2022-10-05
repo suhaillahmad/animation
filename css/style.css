@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
+  /* overflow: hidden; */
 }
 
 body {
@@ -12,13 +13,21 @@ body {
   font-family: "Bungee Spice", cursive;
 }
 h1 {
+  position: absolute;
   color: white;
   font-size: 4rem;
   text-align: center;
-  margin: 8%;
+  margin: 8% 10%;
+}
+
+#myCanvas {
+  position: absolute;
 }
 
 .game {
+  top: 300px;
+  width: 100%;
+  position: absolute;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
