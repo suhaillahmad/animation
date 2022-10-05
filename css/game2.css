@@ -14,9 +14,23 @@ body {
   margin: 5% auto;
   display: flex;
   flex-wrap: wrap;
+  position: absolute;
+  left: 300px;
   width: 900px;
   height: 600px;
   border: solid rgb(89, 89, 89) 1px;
+}
+#gameOver {
+  position: absolute;
+  background-image: url(../images/gameover12.png);
+  background-size: cover;
+  height: 200px;
+  width: 200px;
+  left: 650px;
+  top: 250px;
+}
+.started {
+  display: none;
 }
 
 .grid div {
@@ -29,5 +43,10 @@ body {
 }
 .player {
   background-image: url(../images/spaceshipinv.png);
+  background-size: cover;
+}
+
+.laser {
+  background-image: url(../images/invader3.png);
   background-size: cover;
 }

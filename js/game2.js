@@ -19,6 +19,7 @@ const invadersArray = [
 
 function drawInvaders() {
   for (let i = 0; i < invadersArray.length; i++) {
+    console.log(squares[invadersArray[i]]);
     squares[invadersArray[i]].classList.add("invader");
   }
 }
@@ -60,6 +61,7 @@ const moveInvader = function () {
 
   if (squares[indexPlayer].classList.contains("invader", "player")) {
     clearInterval(gameStarted);
+    document.getElementById("gameOver").classList.remove("started");
   }
 };
 
@@ -84,3 +86,17 @@ const movePlayer = function (event) {
 
 document.addEventListener("keydown", movePlayer);
 const gameStarted = setInterval(moveInvader, 500);
+
+function shooting(event) {
+  let laserIndex = indexPlayer;
+  function moveLaser() {
+    squares[laserIndex].classList.remove("laser");
+    laserIndex -= width;
+    squares[laserIndex].classList.add("laser");
+  }
+  if (event.key === "ArrowUp") {
+    setInterval(moveLaser, 100);
+  }
+}
+
+document.addEventListener("keydown", shooting);
