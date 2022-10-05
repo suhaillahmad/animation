@@ -3,6 +3,7 @@ let indexPlayer = 203;
 let width = 14;
 let movement = 1;
 let flag = true;
+let score = 0;
 let flag2 = false;
 let invadersRemoved = [];
 
@@ -67,8 +68,6 @@ const moveInvader = function () {
   }
 };
 
-drawInvaders();
-
 squares[indexPlayer].classList.add("player");
 
 const movePlayer = function (event) {
@@ -86,7 +85,10 @@ const movePlayer = function (event) {
 };
 
 document.addEventListener("keydown", movePlayer);
-const gameStarted = setInterval(moveInvader, 500);
+
+function gameStarts() {
+  const gameStarted = setInterval(moveInvader, 500);
+}
 
 function shooting(event) {
   let laserIndex = indexPlayer;
@@ -98,7 +100,15 @@ function shooting(event) {
     if (squares[laserIndex].classList.contains("invader")) {
       squares[laserIndex].classList.remove("laser");
       squares[laserIndex].classList.remove("invader");
+      score++;
+      document.querySelector(".score").textContent = score;
 
+      if (score === 30) {
+        clearInterval(gameStarted);
+        clearInterval(movementId);
+
+        document.getElementById("gameWon").classList.remove("won");
+      }
       clearInterval(movementId);
 
       const invadersDead = invadersArray.indexOf(laserIndex);
