@@ -22,6 +22,16 @@ function update(location) {
   let angle = Math.atan2(location.y - center.y, location.x - center.x);
   location.x += speed * Math.cos(angle);
   location.y += speed * Math.sin(angle);
+
+  if (
+    location.x > window.innerWidth ||
+    location.x < 0 ||
+    location.y > window.innerHeight ||
+    location.y < 0
+  ) {
+    location.x = Math.random() * window.innerWidth;
+    location.y = Math.random() * window.innerHeight;
+  }
 }
 
 for (let i = 0; i < 100; i++) {

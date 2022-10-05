@@ -10,8 +10,15 @@ body {
   background-size: cover;
 }
 
+h1 {
+  font-family: "Bungee Spice", cursive;
+  margin-top: 2%;
+  font-size: 5rem;
+  text-align: center;
+}
+
 .grid {
-  margin: 5% auto;
+  margin: auto;
   display: flex;
   flex-wrap: wrap;
   position: absolute;
