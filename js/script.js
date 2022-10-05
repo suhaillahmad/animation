@@ -1,6 +1,6 @@
-let canvas = document.getElementById("myCanvas");
+const canvas = document.getElementById("myCanvas");
 let ctx = canvas.getContext("2d");
-let speed = 5;
+let speed = 3;
 let stars = [];
 let radius = 2 + Math.random() * 2;
 
@@ -32,9 +32,13 @@ function update(location) {
     location.x = Math.random() * window.innerWidth;
     location.y = Math.random() * window.innerHeight;
   }
+  let distance = Math.sqrt(
+    Math.pow(location.x - center.x, 2) + Math.pow(location.y - center.y, 2)
+  );
+  radius = 1 + (3 * distance) / window.innerWidth;
 }
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 400; i++) {
   let loc = {
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
@@ -45,14 +49,10 @@ for (let i = 0; i < 100; i++) {
 animate();
 
 function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  for (let i = 0; i < 50; i++) {
-    ctx.beginPath();
-    ctx.arc(stars[i].x, stars[i].y, radius, 0, Math.PI * 2);
-    ctx.fillStyle = "white";
-    ctx.fill();
-  }
+  //   ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "rgba(0,0,0,0.2)";
+  ctx.rect(0, 0, canvas.width, canvas.height);
+  ctx.fill();
 
   for (let i = 0; i < stars.length; i++) {
     update(stars[i]);
