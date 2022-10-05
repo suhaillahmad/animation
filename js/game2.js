@@ -4,6 +4,7 @@ let width = 14;
 let movement = 1;
 let flag = true;
 let flag2 = false;
+let invadersRemoved = [];
 
 for (let i = 0; i < 210; i++) {
   const square = document.createElement("div");
@@ -19,8 +20,9 @@ const invadersArray = [
 
 function drawInvaders() {
   for (let i = 0; i < invadersArray.length; i++) {
-    console.log(squares[invadersArray[i]]);
-    squares[invadersArray[i]].classList.add("invader");
+    if (!invadersRemoved.includes(i)) {
+      squares[invadersArray[i]].classList.add("invader");
+    }
   }
 }
 
@@ -70,7 +72,6 @@ drawInvaders();
 squares[indexPlayer].classList.add("player");
 
 const movePlayer = function (event) {
-  console.log(event);
   squares[indexPlayer].classList.remove("player");
   if (event.key === "ArrowLeft" || event.key === "a") {
     if (indexPlayer > 196 && indexPlayer <= 210) {
@@ -93,9 +94,19 @@ function shooting(event) {
     squares[laserIndex].classList.remove("laser");
     laserIndex -= width;
     squares[laserIndex].classList.add("laser");
+
+    if (squares[laserIndex].classList.contains("invader")) {
+      squares[laserIndex].classList.remove("laser");
+      squares[laserIndex].classList.remove("invader");
+
+      clearInterval(movementId);
+
+      const invadersDead = invadersArray.indexOf(laserIndex);
+      invadersRemoved.push(invadersDead);
+    }
   }
   if (event.key === "ArrowUp") {
-    setInterval(moveLaser, 100);
+    movementId = setInterval(moveLaser, 100);
   }
 }
 
